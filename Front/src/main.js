@@ -1,5 +1,5 @@
-import '@babel/polyfill'
-import 'mutationobserver-shim'
+// import '@babel/polyfill'
+// import 'mutationobserver-shim'
 
 import {
     createApp
@@ -13,7 +13,7 @@ import App from './App.vue'
 
 import '@/css/animations.css';
 
-import router from './router'
+import router from './router/router'
 
 
 createApp(App).use(router).mount('#app')

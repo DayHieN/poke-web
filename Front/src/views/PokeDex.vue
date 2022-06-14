@@ -1,5 +1,4 @@
-<template>
-  <GenNav />
+<template >
   <div class="container fade-in">
     <div v-for="(data, index) in pokemons" :key="index" class="poke-card">
       <h5>
@@ -17,17 +16,15 @@
         {{ type.name }}
       </h6>
     </div>
-
-    <InfoModal/>
   </div>
+
+  <InfoModal />
 </template>
 <script>
-import GenNav from "@/components/PokeDex/gens/GenNav.vue";
 import InfoModal from "@/components/PokeDex/InfoModal.vue";
 import axios from "axios";
 export default {
   components: {
-    GenNav,
     InfoModal,
   },
   data() {

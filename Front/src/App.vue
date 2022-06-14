@@ -1,11 +1,13 @@
 <template>
   <nav>
+    <router-link to="/">Home</router-link> |
     <router-link to="/PokeDex">PokéDex</router-link> |
     <router-link to="/PokeMerch">PokéMerch</router-link> |
-    <router-link to="/PokeGame">PokéGame</router-link> |
+    <router-link to="/PokeGame">PokéGame</router-link> 
+    
     
   </nav>
-  <router-view/>
+  <router-view></router-view>
 </template>
 
 <style>
