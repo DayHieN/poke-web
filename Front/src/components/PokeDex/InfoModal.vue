@@ -1,13 +1,14 @@
 <template>
   <section :class="modalShow">
     <div class="modal_container">
-      <h2 class="modal_title"></h2>
-      <p class="modal_p">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta error
-        labore ducimus ut, illum fugit, enim eveniet quidem iusto expedita,
-        consectetur ipsum? Nulla, corporis a.
-      </p>
-      <button class="modal_close" @click="hideModal">Cerrar</button>
+      <h1 class="modal_title">{{ poke_info.name }}</h1>
+      <img class="modal-sprite" :src="poke_info.sprite" :alt="poke_info.name" />
+      <div v-for="(type, index) in poke_info.types" :key="index">
+        <img
+          :src="'../../assets/types/' + type.type.name + '.png'"
+          :alt="type.type.name"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -15,6 +16,11 @@
 export default {
   props: {
     poke_info: [],
+  },
+  data() {
+    return {
+      modalShow: "",
+    };
   },
   methods: {
     hideModal() {
@@ -48,14 +54,6 @@ export default {
   grid-auto-columns: 100%;
 }
 
-.modal_close {
-  background-color: #b94242;
-  color: white;
-  transition: 0.2s;
-  border: 1px solid;
-  border-radius: 6px;
-  transition: 0.3s;
-}
 .modal_close:hover {
   transition: 0.2s;
   background-color: white;
@@ -70,5 +68,11 @@ export default {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
+}
+.modal-sprite {
+  width: 25%;
+}
+.modal-title::first-letter {
+  text-transform: uppercase;
 }
 </style>

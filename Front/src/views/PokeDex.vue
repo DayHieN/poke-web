@@ -1,5 +1,24 @@
-<template >
-  <div class="container fade-in">
+<template>
+  <input type="text" v-model="pokemonSearch" name="" />
+  <div
+    v-if="pokemonSearch"
+    v-for="(data, index) in pokemonShow"
+    :key="index"
+    class="poke-card fade-in"
+  >
+    <h5>
+      {{ data.name }} <small>#{{ data.id }}</small>
+    </h5>
+    <img
+      class="sprite"
+      :src="data.sprite"
+      @mouseover="data.sprite = data.shiny"
+      @mouseout="data.sprite = data.sprite2"
+      @click="sendInfo(data)"
+      :alt="data.name"
+    />
+  </div>
+  <div v-if="!pokemonSearch" class="container fade-in">
     <div v-for="(data, index) in pokemons" :key="index" class="poke-card">
       <h5>
         {{ data.name }} <small>#{{ data.id }}</small>
@@ -12,13 +31,15 @@
         @click="sendInfo(data)"
         :alt="data.name"
       />
-      <h6 v-for="(type, index) in data.types" :key="index">
-        {{ type.name }}
-      </h6>
+      <!-- <div v-for="(type, index) in data.types" :key="index">
+        <img
+          :src="'@/assets/types/' + type.type.name + '.png'"
+          :alt="type.type.name"
+        />
+      </div> -->
     </div>
+    <InfoModal :poke_info="pokemonInfo" @click="hideModal" :class="modalShow" />
   </div>
-
-  <InfoModal :class="modalShow"/>
 </template>
 <script>
 import InfoModal from "@/components/PokeDex/InfoModal.vue";
@@ -32,10 +53,20 @@ export default {
       pokemons: [],
       fadeIn: null,
       modalShow: "modal modal_close_modal",
+      pokemonInfo: [],
+      pokemonSearch: "",
+      pokemonShow: [],
     };
   },
   created() {
-    this.getPokemons(1, 151);
+    this.getPokemons(1, 890);
+  },
+  watch: {
+    pokemonSearch(newData) {
+      if (newData != "") {
+        this.searchPokemon();
+      }
+    },
   },
   methods: {
     hideModal() {
@@ -47,6 +78,22 @@ export default {
     sendInfo(pokeInfo) {
       this.showModal();
       console.log(pokeInfo);
+      this.pokemonInfo = pokeInfo;
+    },
+    async searchPokemon() {
+      await axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${this.pokemonSearch}`)
+        .then((response) => {
+          let pokemon = {
+            sprite: response.data.sprites.front_default,
+            sprite2: response.data.sprites.front_default,
+            shiny: response.data.sprites.front_shiny,
+            name: response.data.name,
+            id: response.data.id,
+            types: response.data.types,
+          };
+          this.pokemonShow.push(pokemon);
+        });
     },
     async getPokemons(start, amount) {
       let i = start;
@@ -62,6 +109,7 @@ export default {
           name: response.data.name,
           id: response.data.id,
           types: response.data.types,
+          abilities: response.data.abilities,
         };
         // console.log(pokemon.types);
         this.pokemons.push(pokemon);
@@ -103,50 +151,5 @@ export default {
 }
 h5::first-letter {
   text-transform: uppercase;
-}
-.modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #111111bd;
-  display: flex;
-}
-.modal_container {
-  margin: auto;
-  width: 90%;
-  max-width: 600px;
-  max-height: 90%;
-  background-color: white;
-  border-radius: 20px;
-  padding: 3em 2.5em;
-  display: grid;
-  grid-auto-columns: 100%;
-}
-
-.modal_close {
-  background-color: #b94242;
-  color: white;
-  transition: 0.2s;
-  border: 1px solid;
-  border-radius: 6px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.modal_close:hover {
-  transition: 0.2s;
-  background-color: white;
-  color: #b94242;
-}
-.modal_show {
-  opacity: 1;
-  pointer-events: unset;
-  transition: 0.3s;
-}
-.modal_close_modal {
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
 }
 </style>
