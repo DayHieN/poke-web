@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <InfoModal />
+  <InfoModal :class="modalShow"/>
 </template>
 <script>
 import InfoModal from "@/components/PokeDex/InfoModal.vue";

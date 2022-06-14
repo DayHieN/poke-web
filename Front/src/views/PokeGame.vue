@@ -21,6 +21,7 @@ import getPokemonOptions from "@/helpers/vuekemonUtilidades.js";
 import PokeGameImg from "@/components/pokeGame/PokeGameImg.vue";
 import PokeGameOptions from "@/components/pokeGame/PokeGameOptions.vue";
 
+
 export default {
   data() {
     return {
