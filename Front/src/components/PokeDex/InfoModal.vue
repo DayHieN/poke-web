@@ -1,21 +1,32 @@
 <template>
-  <section :class="modalShow">
-    <div class="modal_container">
-      <h1 class="modal_title">{{ poke_info.name }}</h1>
+  <div :class="modalShow">
+    <div class="modal-container">
+      <h1 class="modal-title">{{ poke_info.name }}</h1>
       <img class="modal-sprite" :src="poke_info.sprite" :alt="poke_info.name" />
       <div v-for="(type, index) in poke_info.types" :key="index">
         <img
-          :src="'../../assets/types/' + type.type.name + '.png'"
+          class="modal-type"
+          :src="require(`@/assets/types/${type.type.name}.png`)"
           :alt="type.type.name"
         />
       </div>
+      <h2>Abilities</h2>
+      <div v-for="(abilities, index) in poke_info.abilities" :key="index">
+        <p class="modal-abilities">
+          {{ abilities.ability.name }}
+        </p>
+      </div>
+      <div>
+        <p>Weight: {{poke_info.weight}} kg</p>
+        <p>Height: {{poke_info.height}} m</p>
+      </div>
     </div>
-  </section>
+  </div>
 </template>
 <script>
 export default {
   props: {
-    poke_info: [],
+    poke_info: null,
   },
   data() {
     return {
@@ -24,10 +35,10 @@ export default {
   },
   methods: {
     hideModal() {
-      this.modalShow = "modal modal_close_modal";
+      this.modalShow = "modal modal-close-modal";
     },
     showModal() {
-      this.modalShow = "modal modal_show";
+      this.modalShow = "modal modal-show";
     },
   },
 };
@@ -42,7 +53,7 @@ export default {
   background-color: #111111bd;
   display: flex;
 }
-.modal_container {
+.modal-container {
   margin: auto;
   width: 90%;
   max-width: 600px;
@@ -54,17 +65,17 @@ export default {
   grid-auto-columns: 100%;
 }
 
-.modal_close:hover {
+.modal-close:hover {
   transition: 0.2s;
   background-color: white;
   color: #b94242;
 }
-.modal_show {
+.modal-show {
   opacity: 1;
   pointer-events: unset;
   transition: 0.3s;
 }
-.modal_close_modal {
+.modal-close-modal {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
@@ -72,7 +83,15 @@ export default {
 .modal-sprite {
   width: 25%;
 }
+.modal-type {
+  display: block;
+
+  width: 8%;
+}
 .modal-title::first-letter {
   text-transform: uppercase;
+}
+.modal-title {
+  display: flex;
 }
 </style>
