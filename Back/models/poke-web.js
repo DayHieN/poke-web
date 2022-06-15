@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const MerchSchema = new Schema({
     url: String,
-    name: String,
+    product_name: String,
     type: String,
     price: String
 })
 
 //convertir modelo
 
-const PokeWebBD = mongoose.model('Poke-web', MerchSchema);
+const PokeWebBD = mongoose.model('pokewebs', MerchSchema);
 export default PokeWebBD;
