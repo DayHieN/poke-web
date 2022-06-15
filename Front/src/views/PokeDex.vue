@@ -6,27 +6,25 @@
     id="search"
     placeholder="buscar Pokémon..."
   />
+
+  <!-- //search -->
   <div v-if="pokemonSearch" class="search-container fade-in">
-    <div
-      v-for="(data, index) in pokemonSearch"
-      :key="index"
-      class="poke-card fade-in"
-    >
+    <div class="poke-card fade-in">
       <p class="search-card-title">
-        {{ pokemonShow[index].name }}
-        <small>#{{ pokemonShow[index].id }}</small>
+        {{ pokemonShow.name }}
+        <small>#{{ pokemonShow.id }}</small>
       </p>
       <img
         class="sprite"
-        :src="pokemonShow[index].sprite"
-        @mouseover="pokemonShow[index].sprite = pokemonShow[index].shiny"
-        @mouseout="pokemonShow[index].sprite = pokemonShow[index].sprite2"
+        :src="pokemonShow.sprite"
+        @mouseover="pokemonShow.sprite = pokemonShow.shiny"
+        @mouseout="pokemonShow.sprite = pokemonShow.sprite2"
         @click="sendInfo(pokemonShow)"
-        :alt="pokemonShow[index].name"
+        :alt="pokemonShow.name"
       />
     </div>
   </div>
-
+  <!-- default -->
   <div v-if="!pokemonSearch" class="container fade-in">
     <div v-for="(data, index) in pokemons" :key="index" class="poke-card">
       <p class="pkmn-name">
@@ -119,7 +117,7 @@ export default {
         pokemon.name.includes(this.pokemonSearch)
       );
 
-      this.pokemonShow = resultado;
+      this.pokemonShow = resultado[0];
     },
     // searchPokemonTypes() {
     //   let resultado = this.pokemons.filter((pokemon) =>
@@ -145,8 +143,8 @@ export default {
 }
 .search-card-title {
   background-color: chocolate;
-  position: relative;
-  bottom: 12px;
+  /* position: relative;
+  bottom: 12px; */
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
 }
@@ -156,7 +154,7 @@ export default {
   color: white;
   border-radius: 20px;
   width: 10rem;
-  height: 10rem;
+  height: 8rem;
 
   transition: 0.3s;
 

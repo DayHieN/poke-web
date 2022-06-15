@@ -89,7 +89,7 @@ export default {
   transition: 0.3s;
 }
 .modal-sprite {
-  width: 25%;
+  width: 30%;
 }
 .modal-type {
   display: block;
