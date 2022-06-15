@@ -17,6 +17,7 @@
         </p>
       </div>
       <div>
+        <h2>Characteristics</h2>
         <p>Weight: {{poke_info.weight}} kg</p>
         <p>Height: {{poke_info.height}} m</p>
       </div>
@@ -43,7 +44,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .modal {
   position: fixed;
   top: 0;
@@ -88,10 +89,12 @@ export default {
 
   width: 8%;
 }
+.modal-title {
+  position: relative;
+    
+}
 .modal-title::first-letter {
   text-transform: uppercase;
 }
-.modal-title {
-  display: flex;
-}
+
 </style>

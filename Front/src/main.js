@@ -10,7 +10,7 @@ import App from './App.vue'
 
 
 
-
+import '@/css/slider.css';
 import '@/css/animations.css';
 
 import router from './router/router'

@@ -8,7 +8,7 @@
   />
   <div v-if="pokemonSearch" class="poke-card fade-in">
     <p class="search-card-title">
-      {{ pokemonShow.name }} <small>#{{ pokemonShow.id }}</small>
+      {{ pokemonShow.name }}  <small>#{{ pokemonShow.id }}</small>
     </p>
     <img
       class="sprite"
