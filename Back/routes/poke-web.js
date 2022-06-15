@@ -3,7 +3,7 @@ const router = express.Router();
 
 //importar modelo
 
-import PokeWebBD from '../models/Poke-web';
+import PokeWebBD from '../models/poke-web';
 
 //get
 router.get('/buscar', async (req, res) => {

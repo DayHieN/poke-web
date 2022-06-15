@@ -1,5 +1,4 @@
 <template>
-  
   <div class="vuopciones-container">
     <ul>
       <li
@@ -11,7 +10,6 @@
       </li>
     </ul>
   </div>
- 
 </template>
 
 <script>
@@ -26,24 +24,28 @@ export default {
 </script>
 
 <style scoped>
-
 li {
-  list-style:none;
-  background-color: white;
+  list-style: none;
+  background-color: chocolate;
+  color: white;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
   cursor: pointer;
   margin-bottom: 10px;
   width: 250px;
-
+  transition: 0.3s;
 }
-li::first-letter{
+li::first-letter {
   text-transform: uppercase;
 }
 li:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: chocolate;
 }
-.correcto{
+.correcto {
   background-color: greenyellow;
 }
 .vuopciones-container {

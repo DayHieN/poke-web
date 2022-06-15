@@ -2,7 +2,13 @@
   <div :class="modalShow">
     <div class="modal-container">
       <h1 class="modal-title">{{ poke_info.name }}</h1>
-      <img class="modal-sprite" :src="poke_info.sprite" :alt="poke_info.name" />
+      <img
+        @mouseover="poke_info.sprite = poke_info.shiny"
+        @mouseout="poke_info.sprite = poke_info.sprite2"
+        class="modal-sprite"
+        :src="poke_info.sprite"
+        :alt="poke_info.name"
+      />
       <div v-for="(type, index) in poke_info.types" :key="index">
         <img
           class="modal-type"
@@ -18,8 +24,8 @@
       </div>
       <div>
         <h2>Characteristics</h2>
-        <p>Weight: {{poke_info.weight}} kg</p>
-        <p>Height: {{poke_info.height}} m</p>
+        <p>Weight: {{ poke_info.weight }} kg</p>
+        <p>Height: {{ poke_info.height }} m</p>
       </div>
     </div>
   </div>
@@ -59,11 +65,12 @@ export default {
   width: 90%;
   max-width: 600px;
   max-height: 90%;
-  background-color: white;
+  background-color: rgb(252, 235, 194);
   border-radius: 20px;
-  padding: 3em 2.5em;
+  padding: 2em 1.5em;
   display: grid;
   grid-auto-columns: 100%;
+  border: solid 10px chocolate;
 }
 
 .modal-close:hover {
@@ -91,10 +98,8 @@ export default {
 }
 .modal-title {
   position: relative;
-    
 }
 .modal-title::first-letter {
   text-transform: uppercase;
 }
-
 </style>

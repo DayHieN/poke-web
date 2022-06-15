@@ -1,5 +1,4 @@
 <template>
- 
   <div class="vuekemon-container">
     <img v-if="respuesta" class="fade-in" :src="srcImg" alt="pokemon" />
     <img v-else class="fade-in hidden-vuekemon" :src="srcImg" alt="pokemon" />
@@ -32,7 +31,6 @@ export default {
 .vuekemon-container {
   display: flex;
   justify-content: center;
-  
 }
 img {
   height: 200px;
@@ -41,6 +39,7 @@ img {
   -ms-user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
+  margin: 30px;
 }
 .hidden-vuekemon {
   filter: brightness(0);
