@@ -131,6 +131,7 @@ export default {
 </script>
 <style scoped>
 #search {
+  height: 30px;
   width: 200px;
   display: flex;
   margin: 10px;
