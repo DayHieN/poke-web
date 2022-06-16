@@ -73,5 +73,25 @@ body {
 p::first-letter{
   text-transform: uppercase;
 }
+
+button {
+  background-color: chocolate;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-bottom: 10px;
+  height: 50px;
+  width: 200px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transition: 0.3s;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: chocolate;
+}
 </style>
 

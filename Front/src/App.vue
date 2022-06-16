@@ -11,16 +11,22 @@
     </div>
 
     <ul class="links">
-      <router-link to="/PokeDex">PokéDex</router-link>
-      <router-link to="/PokeMerch">PokéMerch</router-link>
-      <router-link to="/PokeGame">PokéGame</router-link>
+      <li>
+        <router-link to="/PokeDex">PokéDex</router-link>
+      </li>
+      <li>
+        <router-link to="/PokeMerch">PokéMerch</router-link>
+      </li>
+      <li>
+        <router-link to="/PokeGame">PokéGame</router-link>
+      </li>
     </ul>
   </div>
 
   <router-view></router-view>
 </template>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,7 +45,7 @@ ul {
 }
 
 .navbar {
-  position:relative;
+  position: relative;
   background-image: url("@/assets/bg.png");
   color: #fff;
   padding: 15px;
@@ -49,12 +55,18 @@ ul {
   align-items: center;
 }
 
-.navbar::after{
-  content: '';
+.navbar::after {
+  content: "";
   position: absolute;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(0deg, rgba(255,250,208,1) 0%, rgba(255,255,255,0) 99%);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 250, 208, 1) 0%,
+    rgba(255, 255, 255, 0) 99%
+  );
   pointer-events: none;
 }
 
