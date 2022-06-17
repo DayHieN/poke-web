@@ -1,5 +1,13 @@
 <template>
   <img src="@/assets/pokemerch.png" alt="pokemerch" />
+  <div class="select">
+    <ul>
+      <li @click="select(all)">Todo</li>
+      <li @click="select(clothes)">Ropa</li>
+      <li @click="select(pins)">Pins</li>
+      <li @click="select(games)">Juegos</li>
+    </ul>
+  </div>
   <div class="container">
     <div class="product-card" v-for="data in prod_data" :key="data._id">
       <h3>{{ data.product_name }}</h3>
@@ -24,8 +32,11 @@ export default {
   methods: {
     async showMerch() {
       const response = await axios.get("http://localhost:3000/api/buscar");
-
       this.prod_data = response.data;
+    },
+    select(type) {
+      if (type == all) {
+      }
     },
   },
 };
@@ -48,5 +59,22 @@ export default {
   padding: 30px;
   -webkit-box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
   box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
+}
+ul li {
+  cursor: pointer;
+  display: inline;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 10px;
+  background: chocolate;
+  color: white;
+  border-radius: 20px;
+  height: 5px;
+  transition: 0.3s;
+}
+ul li:hover {
+  background: white;
+  color: chocolate;
+  transition: 0.3s;
 }
 </style>
