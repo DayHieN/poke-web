@@ -6,6 +6,7 @@ import PokeGame from '@/views/PokeGame.vue'
 import PokeDex from '@/views/PokeDex.vue'
 import PokeMerch from '@/views/PokeMerch.vue'
 import Home from '@/views/Home.vue'
+import NotFoundPage from '@/shared/NotFoundPage'
 
 const routes = [{
     path: '/',
@@ -27,6 +28,11 @@ const routes = [{
     path: '/PokeMerch',
     name: 'PokeMerch',
     component: PokeMerch
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import( /* webpackChunkName: "notfound" */ '@/shared/NotFoundPage')
   },
 
 ]

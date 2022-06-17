@@ -1,5 +1,7 @@
 <template>
-  <input
+ 
+  <img src="@/assets/pokedex.png" alt="">
+   <input
     type="text"
     v-model="pokemonSearch"
     name=""
@@ -213,6 +215,7 @@ export default {
   height: 40px;
   width: 200px;
   display: flex;
+  justify-content: center;
   margin-bottom: 40px;
   border: none;
 }
@@ -252,6 +255,11 @@ button:hover {
   bottom: 12px; */
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
+  color: white;
+}
+
+.search-card-title small{
+  color: white;
 }
 
 .poke-card {

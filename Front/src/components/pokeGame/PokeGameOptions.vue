@@ -44,6 +44,7 @@ li:hover {
   border-radius: 5px;
   border: 1px solid white;
   color: chocolate;
+  font-weight: bold;
 }
 .correcto {
   background-color: greenyellow;

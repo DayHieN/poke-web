@@ -14,6 +14,7 @@
     <h3 v-show="msg">{{ msg }} ¡Es <p> {{ pokemon.name }}!</p></h3>
     <button v-if="!mostrarLista" @click="newGame">Jugar otra vez</button>
   </div>
+  <div v-else><h1>Cargando Pokémon...</h1></div>
 </template>
 
 <script>

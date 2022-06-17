@@ -22,9 +22,29 @@
       </li>
     </ul>
   </div>
+  <div class="toggle">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
 
   <router-view></router-view>
 </template>
+<script>
+export default {
+  head: {
+    script: [
+      {
+        type: "text/javascript",
+        src: "@/togglemenu.js",
+        async: true,
+        body: true,
+      },
+    ],
+  },
+};
+</script>
+
 
 <style scoped>
 #app {
@@ -74,16 +94,23 @@ ul {
   cursor: pointer;
   width: 250px;
   z-index: 1;
+  transition: 0.3s;
+}
+
+.navbar .logo:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .navbar ul.links {
   z-index: 1;
-  margin-left: auto;
-  margin-right: 50px;
+  
   list-style: none;
   display: flex;
   align-items: center;
   transition: 0.4s ease all, 0s ease background;
+  margin: 20px;
+  
 }
 .navbar ul.links li {
   text-transform: uppercase;
@@ -93,7 +120,19 @@ ul {
   justify-content: center;
   align-items: center;
   transition: 0.4s ease all, 0s ease margin;
+  background: rgba(0, 0, 0, 0.5);
+  
 }
+
+.navbar ul.links li:nth-child(1){
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.navbar ul.links li:nth-child(3){
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 .navbar ul.links li a {
   text-decoration: none;
   color: #fff;
@@ -104,6 +143,7 @@ ul {
 }
 .navbar ul.links li:hover a {
   color: #080808;
+  font-weight: bold;
 }
 
 button {
