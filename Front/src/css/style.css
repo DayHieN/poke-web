@@ -12,3 +12,7 @@
 body {
     background-color: #fffad0;
 }
+
+html {
+    scroll-behavior: smooth;
+}
