@@ -1,39 +1,27 @@
 <template>
   <div :class="modalShow">
     <div class="modal-container">
-      <h1 class="modal-title">{{ poke_info.name }}</h1>
-      <div class="modal-sprite-container">
+      <div class="modal-img-container">
+        <h1 class="modal-title">{{ prod_info.product_name }}</h1>
         <img
-          @mouseover="poke_info.sprite = poke_info.shiny"
-          @mouseout="poke_info.sprite = poke_info.sprite2"
-          class="modal-sprite"
-          :src="poke_info.sprite"
-          :alt="poke_info.name"
-        />
-      </div>
-
-      <div
-        class="modal-types"
-        v-for="(type, index) in poke_info.types"
-        :key="index"
-      >
-        <img
-          class="modal-type"
-          :src="require(`@/assets/types/${type.type.name}.png`)"
-          :alt="type.type.name"
+          class="modal-img"
+          :src="prod_info.url"
+          :alt="prod_info.product_name"
         />
       </div>
       <div class="modal-info">
-        <h2>Abilities</h2>
-        <div v-for="(abilities, index) in poke_info.abilities" :key="index">
-          <p class="modal-abilities">
-            {{ abilities.ability.name }}
-          </p>
-        </div>
+        <h2>Description</h2>
+
+        <p class="desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, odio
+          repellendus? Maiores consequatur iusto fugiat debitis possimus.
+          Commodi vero vitae adipisci aliquid, quisquam a id laudantium, quia
+          beatae deserunt ipsam.
+        </p>
+
         <div>
-          <h2>Characteristics</h2>
-          <p>Weight: {{ poke_info.weight }} kg</p>
-          <p>Height: {{ poke_info.height }} m</p>
+          <h3>Price</h3>
+          <p>{{ prod_info.price }}</p>
         </div>
       </div>
     </div>
@@ -42,7 +30,7 @@
 <script>
 export default {
   props: {
-    poke_info: null,
+    prod_info: null,
   },
   data() {
     return {
@@ -72,13 +60,15 @@ export default {
 .modal-container {
   margin: auto;
   width: 90%;
-  max-width: 600px;
+  max-width: 800px;
   max-height: 90%;
-  background-color: rgb(252, 235, 194);
+  background-color: rgb(254, 254, 254);
   border-radius: 20px;
   padding: 2em 1.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.5em;
 
-  grid-auto-columns: 100%;
   border: solid 10px chocolate;
 }
 
@@ -91,29 +81,28 @@ export default {
   opacity: 1;
   pointer-events: unset;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
 }
 .modal-close-modal {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
 }
-.modal-sprite {
-  width: 30%;
+.modal-img {
+  width: 300px;
 }
-.modal-type {
-  width: 8%;
-}
-.modal-types {
-  display: inline;
-}
+
 .modal-title {
   position: relative;
 }
 .modal-title::first-letter {
   text-transform: uppercase;
 }
-
-/* .modal-info {
-  text-align: start;
-} */
+.desc {
+  color: black;
+}
+.modal-info {
+  text-align: center;
+}
 </style>

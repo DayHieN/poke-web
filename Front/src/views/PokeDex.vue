@@ -1,7 +1,6 @@
 <template>
- 
-  <img src="@/assets/pokedex.png" alt="">
-   <input
+  <img class="banner" src="@/assets/pokedex.png" alt="pokedex" />
+  <input
     type="text"
     v-model="pokemonSearch"
     name=""
@@ -65,15 +64,20 @@
         @click="hideModal"
         :class="modalShow"
       />
+      <div @scroll="scrolling()">
+        <ScrollModal v-if="scroll"  />
+      </div>
     </div>
   </div>
 </template>
 <script>
 import InfoModal from "@/components/PokeDex/InfoModal.vue";
+import ScrollModal from "@/components/PokeDex/ScrollModal.vue";
 import axios from "axios";
 export default {
   components: {
     InfoModal,
+    ScrollModal,
   },
   data() {
     return {
@@ -86,6 +90,7 @@ export default {
       start: 1,
       amount: 890,
       gen: null,
+      scroll: false,
     };
   },
   created() {
@@ -104,6 +109,13 @@ export default {
     },
     showModal() {
       this.modalShow = "modal modal-show";
+    },
+    scrolling: function (e) {
+      var currentScrollPosition = e.srcElement.scrollTop;
+      if (currentScrollPosition > this.scroll) {
+        console.log("Scrolling down");
+      }
+      this.scroll = currentScrollPosition;
     },
     sendInfo(pokeInfo) {
       this.showModal();
@@ -211,6 +223,7 @@ export default {
 };
 </script>
 <style scoped>
+
 #search {
   height: 40px;
   width: 200px;
@@ -258,7 +271,7 @@ button:hover {
   color: white;
 }
 
-.search-card-title small{
+.search-card-title small {
   color: white;
 }
 

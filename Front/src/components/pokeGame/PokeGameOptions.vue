@@ -46,9 +46,7 @@ li:hover {
   color: chocolate;
   font-weight: bold;
 }
-.correcto {
-  background-color: greenyellow;
-}
+
 .vuopciones-container {
   position: relative;
   right: 18px;
