@@ -20,6 +20,9 @@
       <li>
         <router-link to="/PokeGame">PokéGame</router-link>
       </li>
+      <li>
+        <router-link to="/PokeMovies">PokéMovies</router-link>
+      </li>
     </ul>
   </div>
   <div class="toggle">
@@ -124,11 +127,11 @@ ul {
   
 }
 
-.navbar ul.links li:nth-child(1){
+.navbar ul.links li:first-child{
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-.navbar ul.links li:nth-child(3){
+.navbar ul.links li:last-child{
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }

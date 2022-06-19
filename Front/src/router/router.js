@@ -5,6 +5,7 @@ import {
 import PokeGame from '@/views/PokeGame.vue'
 import PokeDex from '@/views/PokeDex.vue'
 import PokeMerch from '@/views/PokeMerch.vue'
+import PokeMovies from '@/views/PokeMovies.vue'
 import Home from '@/views/Home.vue'
 import NotFoundPage from '@/shared/NotFoundPage'
 
@@ -28,6 +29,11 @@ const routes = [{
     path: '/PokeMerch',
     name: 'PokeMerch',
     component: PokeMerch
+  },
+  {
+    path: '/PokeMovies',
+    name: 'PokeMovies',
+    component: PokeMovies
   },
   {
     path: '/:pathMatch(.*)*',

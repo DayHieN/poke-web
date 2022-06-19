@@ -1,40 +1,27 @@
 <template>
   <div :class="modalShow">
     <div class="modal-container">
-      <div class="modal-img-container">
-        <h1 class="modal-title">{{ prod_info.product_name }}</h1>
-        <img
-          class="modal-img"
-          :src="prod_info.url"
-          :alt="prod_info.product_name"
-        />
-      </div>
       <div class="modal-info">
-        <h2>Description</h2>
-
-        <p class="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, odio
-          repellendus? Maiores consequatur iusto fugiat debitis possimus.
-          Commodi vero vitae adipisci aliquid, quisquam a id laudantium, quia
-          beatae deserunt ipsam.
-        </p>
-
-        <div class="price-container">
-          <h3>Price</h3>
-          <p class="price">{{ prod_info.price }}</p>
-        </div>
+        <h1>{{ movie_info.title }}</h1><br>
+        <p>{{movie_info.overview}}</p>
       </div>
+
+      <div class="img-container">
+        <img :src="img + movie_info.poster_path" alt="" />
+      </div>
+      <span>Fecha de lanzamiento: </span><p>{{movie_info.release_date}}</p>
     </div>
   </div>
 </template>
 <script>
 export default {
   props: {
-    prod_info: null,
+    movie_info: null,
   },
   data() {
     return {
       modalShow: "",
+      img: "http://image.tmdb.org/t/p/w200",
     };
   },
   methods: {
@@ -105,9 +92,4 @@ export default {
 .modal-info {
   text-align: center;
 }
-.price{
-  font-size: 30px;
-}
-
-
 </style>
