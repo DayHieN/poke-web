@@ -1,4 +1,5 @@
 <template>
+<img src="@/assets/pokemovies.png" alt="">
   <div class="container">
     <div
       v-for="movie in movies"
@@ -6,7 +7,7 @@
       class="card"
       @click="sendInfo(movie)"
     >
-      <h1>{{ movie.title }}</h1>
+      <h3>{{ movie.title }}</h3><br>  
 
       <img :src="img + movie.poster_path" alt="{{movie.title}}" />
     </div>
@@ -56,8 +57,8 @@ export default {
 <style scoped>
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 1.5em;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2.5em;
   margin: 45px;
 }
 .card {
@@ -72,7 +73,7 @@ export default {
   box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
 
   transition: 0.3s;
-  width: 400px;
+  width: 300px;
 }
 
 .card:hover {

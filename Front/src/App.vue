@@ -18,10 +18,10 @@
         <router-link to="/PokeMerch">PokéMerch</router-link>
       </li>
       <li>
-        <router-link to="/PokeGame">PokéGame</router-link>
+        <router-link to="/PokeMovies">PokéMovies</router-link>
       </li>
       <li>
-        <router-link to="/PokeMovies">PokéMovies</router-link>
+        <router-link to="/PokeGame">PokéGame</router-link>
       </li>
     </ul>
   </div>

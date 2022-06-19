@@ -2,14 +2,15 @@
   <div :class="modalShow">
     <div class="modal-container">
       <div class="modal-info">
-        <h1>{{ movie_info.title }}</h1><br>
-        <p>{{movie_info.overview}}</p>
+        <h1>{{ movie_info.title }}</h1>
+        <br />
+        <p>{{ movie_info.overview }}</p>
       </div>
 
       <div class="img-container">
-        <img :src="img + movie_info.poster_path" alt="" />
+        <img :src="img + movie_info.poster_path" alt="" class="modal-img" />
       </div>
-      <span>Fecha de lanzamiento: </span><p>{{movie_info.release_date}}</p>
+      <p>Fecha de lanzamiento: <b>{{ movie_info.release_date }}</b></p>
     </div>
   </div>
 </template>
@@ -53,7 +54,7 @@ export default {
   border-radius: 20px;
   padding: 2em 1.5em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1.5em;
 
   border: solid 10px chocolate;
@@ -78,6 +79,7 @@ export default {
 }
 .modal-img {
   width: 300px;
+  border-radius: 20px;
 }
 
 .modal-title {
