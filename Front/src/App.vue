@@ -143,6 +143,10 @@ ul {
   text-decoration: none;
   color: #fff;
 }
+
+.navbar ul.links li:focus {
+  background-color: #ffc600;
+}
 .navbar ul.links li:hover {
   background: #ffc600;
   cursor: pointer;
@@ -277,7 +281,5 @@ section {
     position: fixed;
     z-index: 40;
   }
-
-  
 }
 </style>
