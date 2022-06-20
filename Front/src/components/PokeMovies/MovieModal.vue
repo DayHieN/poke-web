@@ -46,6 +46,7 @@ export default {
   right: 0;
   background-color: #111111bd;
   display: flex;
+  z-index: 1;
 }
 .modal-container {
   margin: auto;

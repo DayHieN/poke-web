@@ -1,9 +1,9 @@
 <template>
   <div>
     <footer>
-      <div class="footer"> 
-        <p class="yo">Gabriel Hernández Collado 2022 &#9426</p>
-      <router-link to="/About">Acerca de</router-link>
+      <div class="footer">
+        <p class="yo">Gabriel Hernández Collado 2022 &#9426;</p>
+        <router-link to="/About">Acerca de</router-link>
       </div>
     </footer>
   </div>
