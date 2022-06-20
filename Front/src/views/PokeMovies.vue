@@ -1,5 +1,5 @@
 <template>
-<img src="@/assets/pokemovies.png" alt="">
+  <img src="@/assets/pokemovies.png" alt="" />
   <div class="container">
     <div
       v-for="movie in movies"
@@ -7,12 +7,17 @@
       class="card"
       @click="sendInfo(movie)"
     >
-      <h3>{{ movie.title }}</h3><br>  
-
       <img :src="img + movie.poster_path" alt="{{movie.title}}" />
+      <h4>{{ movie.title }}</h4>
+      <br />
     </div>
   </div>
-  <MovieModal v-if="moviesInfo" :movie_info="moviesInfo" :class="modalShow" @click="hideModal" />
+  <MovieModal
+    v-if="moviesInfo"
+    :movie_info="moviesInfo"
+    :class="modalShow"
+    @click="hideModal"
+  />
 </template>
 <script>
 import axios from "axios";
@@ -24,7 +29,7 @@ export default {
   data() {
     return {
       movies: [],
-      img: "http://image.tmdb.org/t/p/w200",
+      img: "http://image.tmdb.org/t/p/w400",
       moviesInfo: null,
       modalShow: "modal modal-close-modal",
     };
@@ -38,7 +43,7 @@ export default {
         "https://api.themoviedb.org/3/search/movie?api_key=d774b84c19578a42cd287690a0840e5e&query=pokemon&language=es-SPA"
       );
       console.log(response.data);
-      this.movies = response.data.results;
+      this.movies = response.data.results.filter((movie) => movie.overview);
     },
     sendInfo(moviesInfo) {
       this.showModal();
@@ -68,12 +73,12 @@ export default {
 
   border-radius: 20px;
   width: 300px;
-  padding: 30px;
+
   -webkit-box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
   box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
 
   transition: 0.3s;
-  width: 300px;
+  width: 255px;
 }
 
 .card:hover {
@@ -82,6 +87,8 @@ export default {
 }
 
 .card img {
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 255px;
 }
 </style>
