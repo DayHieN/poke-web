@@ -32,8 +32,10 @@
   </div>
 
   <router-view></router-view>
+  <Footer />
 </template>
 <script>
+import Footer from "@/shared/Footer.vue";
 export default {
   head: {
     script: [
@@ -44,6 +46,9 @@ export default {
         body: true,
       },
     ],
+  },
+  components: {
+    Footer,
   },
 };
 </script>
@@ -107,13 +112,12 @@ ul {
 
 .navbar ul.links {
   z-index: 1;
-  
+
   list-style: none;
   display: flex;
   align-items: center;
   transition: 0.4s ease all, 0s ease background;
   margin: 20px;
-  
 }
 .navbar ul.links li {
   text-transform: uppercase;
@@ -124,14 +128,13 @@ ul {
   align-items: center;
   transition: 0.4s ease all, 0s ease margin;
   background: rgba(0, 0, 0, 0.5);
-  
 }
 
-.navbar ul.links li:first-child{
+.navbar ul.links li:first-child {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-.navbar ul.links li:last-child{
+.navbar ul.links li:last-child {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -139,6 +142,10 @@ ul {
 .navbar ul.links li a {
   text-decoration: none;
   color: #fff;
+}
+
+.navbar ul.links li:focus {
+  background-color: #ffc600;
 }
 .navbar ul.links li:hover {
   background: #ffc600;
@@ -164,21 +171,6 @@ button:hover {
   color: white;
   background: #222222;
   border-color: black;
-}
-
-.content {
-  background: url("https://images.unsplash.com/photo-1563733758230-a5d441824696?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
-    no-repeat;
-  background-size: cover;
-  height: calc(100vh - 65px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-.content h2 {
-  color: #ffc600;
 }
 
 .navbar.sticky {

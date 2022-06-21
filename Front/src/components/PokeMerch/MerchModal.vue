@@ -56,6 +56,7 @@ export default {
   right: 0;
   background-color: #111111bd;
   display: flex;
+  z-index: 1;
 }
 .modal-container {
   margin: auto;
@@ -105,9 +106,7 @@ export default {
 .modal-info {
   text-align: center;
 }
-.price{
+.price {
   font-size: 30px;
 }
-
-
 </style>

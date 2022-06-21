@@ -68,6 +68,7 @@ export default {
   right: 0;
   background-color: #111111bd;
   display: flex;
+  z-index: 1;
 }
 .modal-container {
   margin: auto;
@@ -98,7 +99,7 @@ export default {
   transition: 0.3s;
 }
 .modal-sprite {
-  width: 30%;
+  width: 200px;
 }
 .modal-type {
   width: 8%;

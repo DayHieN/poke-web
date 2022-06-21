@@ -10,7 +10,9 @@
       <div class="img-container">
         <img :src="img + movie_info.poster_path" alt="" class="modal-img" />
       </div>
-      <p>Fecha de lanzamiento: <b>{{ movie_info.release_date }}</b></p>
+      <p>
+        Fecha de lanzamiento: <b>{{ movie_info.release_date }}</b>
+      </p>
     </div>
   </div>
 </template>
@@ -44,11 +46,12 @@ export default {
   right: 0;
   background-color: #111111bd;
   display: flex;
+  z-index: 1;
 }
 .modal-container {
   margin: auto;
   width: 90%;
-  max-width: 800px;
+  max-width: 900px;
   max-height: 90%;
   background-color: rgb(254, 254, 254);
   border-radius: 20px;
@@ -78,7 +81,7 @@ export default {
   transition: 0.3s;
 }
 .modal-img {
-  width: 300px;
+  width: 250px;
   border-radius: 20px;
 }
 

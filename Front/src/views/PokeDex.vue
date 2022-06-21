@@ -22,7 +22,7 @@
   <!-- //search -->
   <div class="all-container">
     <div v-if="pokemonSearch" class="search-container fade-in">
-      <div class="poke-card fade-in">
+      <div class="poke-card fade-in" @click="sendInfo(pokemonShow)">
         <p class="search-card-title">
           {{ pokemonShow.name }}
           <small>#{{ pokemonShow.id }}</small>
@@ -32,14 +32,18 @@
           :src="pokemonShow.sprite"
           @mouseover="pokemonShow.sprite = pokemonShow.shiny"
           @mouseout="pokemonShow.sprite = pokemonShow.sprite2"
-          @click="sendInfo(pokemonShow)"
           :alt="pokemonShow.name"
         />
       </div>
     </div>
     <!-- default -->
     <div v-if="!pokemonSearch" class="container fade-in">
-      <div v-for="(data, index) in pokemons" :key="index" class="poke-card">
+      <div
+        v-for="(data, index) in pokemons"
+        :key="index"
+        class="poke-card"
+        @click="sendInfo(data)"
+      >
         <p class="pkmn-name">
           {{ data.name }}<small>#{{ data.id }}</small>
         </p>
@@ -49,7 +53,6 @@
           :src="data.sprite"
           @mouseover="data.sprite = data.shiny"
           @mouseout="data.sprite = data.sprite2"
-          @click="sendInfo(data)"
           :alt="data.name"
         />
         <!-- <div v-for="(type, index) in data.types" :key="index">
@@ -65,7 +68,7 @@
         :class="modalShow"
       />
       <div @scroll="scrolling()">
-        <ScrollModal v-if="scroll"  />
+        <ScrollModal v-if="scroll" />
       </div>
     </div>
   </div>
@@ -223,7 +226,6 @@ export default {
 };
 </script>
 <style scoped>
-
 #search {
   height: 40px;
   width: 200px;
@@ -279,9 +281,9 @@ button:hover {
   background-color: rgb(255, 246, 223);
   color: white;
   border-radius: 20px;
-  width: 10rem;
-  height: 8rem;
-
+  width: 14rem;
+  height: 11rem;
+  cursor: pointer;
   transition: 0.3s;
 
   -webkit-box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
@@ -289,7 +291,7 @@ button:hover {
 }
 
 .poke-card:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
   transition: 0.3s;
 }
 
@@ -311,11 +313,12 @@ button:hover {
 .sprite {
   transition: 0.3;
   cursor: pointer;
+  width: 150px;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   gap: 1.7em;
 }
 .search-container {

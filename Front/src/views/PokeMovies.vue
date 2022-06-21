@@ -8,8 +8,10 @@
       @click="sendInfo(movie)"
     >
       <img :src="img + movie.poster_path" alt="{{movie.title}}" />
-      <h4>{{ movie.title }}</h4>
+
       <br />
+      <br />
+      <h4>{{ movie.title }}</h4>
     </div>
   </div>
   <MovieModal
@@ -29,7 +31,7 @@ export default {
   data() {
     return {
       movies: [],
-      img: "http://image.tmdb.org/t/p/w400",
+      img: "http://image.tmdb.org/t/p/w300",
       moviesInfo: null,
       modalShow: "modal modal-close-modal",
     };
@@ -74,11 +76,13 @@ export default {
   border-radius: 20px;
   width: 300px;
 
+  padding-bottom: 10px;
+
   -webkit-box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
   box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.51);
 
   transition: 0.3s;
-  width: 255px;
+  width: 250px;
 }
 
 .card:hover {
@@ -87,8 +91,8 @@ export default {
 }
 
 .card img {
-  border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  width: 255px;
+  border-top-left-radius: 20px;
+  width: 250px;
 }
 </style>
