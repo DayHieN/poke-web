@@ -23,6 +23,9 @@
           <h3>Price</h3>
           <p class="price">{{ prod_info.price }}</p>
         </div>
+        <div class="buy-btn">
+          <button @click="sendToCart(prod_info)">Comprar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +46,9 @@ export default {
     },
     showModal() {
       this.modalShow = "modal modal-show";
+    },
+    sendToCart(prod) {
+      this.prod_info;
     },
   },
 };
@@ -108,5 +114,27 @@ export default {
 }
 .price {
   font-size: 30px;
+}
+
+.buy-btn button {
+  cursor: pointer;
+  display: inline;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  margin: 10px;
+  background: chocolate;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  height: 10px;
+  transition: 0.3s;
+}
+.buy-btn button:hover {
+  background: white;
+  color: chocolate;
+  transition: 0.3s;
+  font-weight: bold;
 }
 </style>
