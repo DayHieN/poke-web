@@ -11,7 +11,10 @@
       @mi-respuesta="activarRespuesta"
       :lista-opciones="listaArray"
     />
-    <h3 v-show="msg">{{ msg }} ¡Es <p> {{ pokemon.name }}!</p></h3>
+    <h3 v-show="msg">
+      {{ msg }} ¡Es
+      <p>{{ pokemon.name }}!</p>
+    </h3>
     <button v-if="!mostrarLista" @click="newGame">Jugar otra vez</button>
   </div>
   <div v-else><h1>Cargando Pokémon...</h1></div>
@@ -21,7 +24,6 @@
 import getPokemonOptions from "@/helpers/vuekemonUtilidades.js";
 import PokeGameImg from "@/components/pokeGame/PokeGameImg.vue";
 import PokeGameOptions from "@/components/pokeGame/PokeGameOptions.vue";
-
 
 export default {
   data() {
@@ -67,12 +69,16 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 body {
   width: 100%;
   height: 100%;
 }
 
 p::first-letter{
+=======
+p::first-letter {
+>>>>>>> cb232a9ded912f326e4121fa5a7a992d98994002
   text-transform: uppercase;
 }
 
