@@ -68,7 +68,8 @@ export default {
 
 <style scoped>
 body {
-  background-image: url("../assets/background.jpg");
+  width: 100%;
+  height: 100%;
 }
 
 p::first-letter{

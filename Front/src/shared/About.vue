@@ -20,12 +20,18 @@
 export default {};
 </script>
 <style scoped>
+.content{
+  display: grid;
+  justify-content: center;
+}
 .content a {
   text-decoration: none;
   background-color: chocolate;
+  color: white;
   border-radius: 20px;
   padding: 2px;
   margin: 5px;
+  width: 100px;
   transition: 0.3s;
 }
 .content a:hover {

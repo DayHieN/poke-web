@@ -1,27 +1,27 @@
 <template>
-  <div>
-    <footer>
-      <div class="footer">
-        <p class="yo">Gabriel Hernández Collado 2022 &#9426;</p>
-        <router-link to="/About">Acerca de</router-link>
-      </div>
-    </footer>
-  </div>
+  <footer>
+    <div class="footer">
+      <p class="yo">Gabriel Hernández Collado 2022 &#9426;</p>
+      <router-link to="/About">Acerca de</router-link>
+    </div>
+  </footer>
 </template>
 <script>
 export default {};
 </script>
 <style scoped>
 .footer {
-  position: relative;
+  
   background-image: url("@/assets/bg.png");
   color: #fff;
   padding: 15px;
   width: 100%;
-  height: 250px;
+  height: 200px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  position: relative;
+  bottom: 0;
 }
 
 .footer p {
